@@ -72,7 +72,7 @@ def delete():
     print("Deleting folders...")
     folder_path_train = os.path.join("data","Train_Alphabet") # Folder path train
     folder_path_test = os.path.join("data","Test_Alphabet") # Folder path test
-    folders_to_delete = ["del", "nothing", "space", "Blank"]  # List of folders to delete
+    folders_to_delete = ["Blank"]  # List of folders to delete
 
     for folder_name in folders_to_delete: # For every index in the list above 
         folder_path = os.path.join(folder_path_train, folder_name)
