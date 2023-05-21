@@ -15,7 +15,7 @@ def image_generators():
     # Train and validation
     datagen = ImageDataGenerator(horizontal_flip=True, 
                                 validation_split = 0.2, # Flip it horizontally around the access randomly 
-                                 # Rotate the image randomly 20 degress around the access
+                          
                                 rescale = 1/255) # rescale the pixel values to between 0-1                          
     # Test
     test_datagen = ImageDataGenerator(                 
