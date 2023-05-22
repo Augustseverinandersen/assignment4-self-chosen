@@ -78,7 +78,8 @@ It would have been interesting to see how the model would have performed if the 
 ## 4.8 Usage
 To run the scripts in this repository follow these steps:
 -	Clone the repository.
--	Get the zip file data from Kaggle for the [synthetic images](https://www.kaggle.com/datasets/lexset/synthetic-asl-alphabet) and the [real images](https://www.kaggle.com/datasets/grassknoted/asl-alphabet), and place them in the _data_ folder.
+-	Navigate to the correct directory.
+-	Get the zip file data from Kaggle for the [synthetic images](https://www.kaggle.com/datasets/lexset/synthetic-asl-alphabet) and the [real images](https://www.kaggle.com/datasets/grassknoted/asl-alphabet), and place them in the _data_ folder (you might need to rename them).
 -	Run ``bash setup.sh`` in the command line. This will create a virtual environment and install the requirements.
 -	Run ``source ./assignment_4/bin/activate`` in the command line to activate the virtual environment.
 -	To run the ``asl_real.py script``, run this in the command line: 
