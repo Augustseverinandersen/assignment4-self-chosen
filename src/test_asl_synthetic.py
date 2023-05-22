@@ -2,18 +2,13 @@
 import tensorflow as tf
 
 # image processsing
-from tensorflow.keras.preprocessing.image import (load_img, # Maybe remove
-                                                  img_to_array, # Maybe remove
-                                                  ImageDataGenerator)
+from tensorflow.keras.preprocessing.image import (ImageDataGenerator)
 # VGG16 model
-from tensorflow.keras.applications.vgg16 import (preprocess_input, # Maybe remove
-                                                 decode_predictions, # ;aybe remove
-                                                 VGG16)
+from tensorflow.keras.applications.vgg16 import (VGG16)
 
 # layers
 from tensorflow.keras.layers import (Flatten, 
-                                     Dense, 
-                                     Dropout, # Maybe remove
+                                     Dense,
                                      BatchNormalization)
 # generic model object
 from tensorflow.keras.models import Model
@@ -23,7 +18,6 @@ from tensorflow.keras.optimizers.schedules import ExponentialDecay
 from tensorflow.keras.optimizers import SGD
 
 #scikit-learn
-from sklearn.preprocessing import LabelBinarizer # Maybe remove
 from sklearn.metrics import classification_report
 
 # Data Munging
