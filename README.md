@@ -22,7 +22,7 @@ This script uses the following packages:
 -	Os is used to navigate file paths, on different operating systems.
 -	Zipfile is used to unpack the zip files.
 -	Argparse is used to create command line arguments
--	Sys is used to navigate the directory. In this case show the pack to the helper_functions.py script.
+-	Sys is used to navigate the directory. In this case show the path to the helper_functions.py script.
 ## 4.5 Repository Contents
 This repository contains the following folder and files.
 - ***Data*** is an empty folder where the zip files will be placed.
