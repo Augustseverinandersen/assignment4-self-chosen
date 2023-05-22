@@ -27,14 +27,14 @@ This script uses the following packages:
 ## 4.5 Repository Contents
 This repository contains the following folder and files.
 - ***Data*** is an empty folder where the zip files will be placed.
-- __Figs__ is a folder that contains the *loss and accuracy plots*. 
-- __Models__ is a folder that contains the saved models. 
-- __Out__ is a folder that contains the classification reports for both models.
-- __Src__ is a folder that contains the two scripts ```asl_real.py``` and ```asl_synthetic.py```.
-- __Utils__ is a folder that contains the ```helper_functions.py``` script. 
-- __README.md__ the readme file.
-- __Requirements.txt__ this text file contains the packages to install.
-- __Setup.sh__ installs the virtual environment, upgrades pip, and installs the packages from requirements.txt.
+- ***Figs*** is a folder that contains the *loss and accuracy plots*. 
+- ***Models*** is a folder that contains the saved models. 
+- ***Out*** is a folder that contains the classification reports for both models.
+- ***Src*** is a folder that contains the two scripts ```asl_real.py``` and ```asl_synthetic.py```.
+- ***Utils*** is a folder that contains the ```helper_functions.py``` script. 
+- ***README.md*** the readme file.
+- ***Requirements.txt*** this text file contains the packages to install.
+- ***Setup.sh*** installs the virtual environment, upgrades pip, and installs the packages from requirements.txt.
 ## 4.6 Methods
 ### 4.6.1 Script ```asl_synthetic.py```
 - The script starts by initialising command-line arguments for the path to the zip file and epochs. 
