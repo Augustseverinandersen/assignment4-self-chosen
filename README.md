@@ -13,9 +13,21 @@ __The synthetic dataset__ consits of 27000 images of the alphabet signed in Amer
 __The real dataset__ consits of 87000 images of 200 by 200 pixels. The structure of the data is as follows: Two folders (asl_alphabet_test, and asl_alphabet_train), each containing a sub folder of the same name, containing 29 folders (one for each letter of the alphabet, and three additional classes *SPACE, DELETE,* and *NOTHING*), containing the images. The train folders contain 3000 images each, and the test folders contain one image each. The data appears to be created by one person because he "*was inspired to create the dataset to help solve the real-world problem of sign language recognition.*". The background of the images is almost the same, the hand placement various abit, but the images have different lighting.
 
 ## 4.4 Packages
+This script uses the following packages:
+- TensorFlow (version 2.12.0) the following is beimg imported: *ImageDataGenerator* is used to load and augment the images. *VGG16* is the pretrained CNN. *Flatten, Dense, and BatchNormalization* is used to create new classifier layers. *ExponentialDecay and SGD* is used to create a learning decay rate.
+- Scikit-learn (version 1.2.2) is used to import the *classification report*.
+- Numpy (version 1.23.5) is used to handle arrays.
+- Shutil is used to delete folders with content.
+- Pandas (version 2.0.1) is used to create the dataframes and sampling.
+- Matplotlib (3.7.1) is used to create plots.
+- Os is used to navigate file paths, on different operating systems.
+- Zipfile is used to unpack the zip files.
+- Argparse is used to create command line arguments
+- Sys is used to navigate the directory. In this case show the pack to the ```helper_functions.py``` script.
 ## 4.5 Repository Contents
+This repository contains the following folder and files.
+- ---data--- 
 ## 4.6 Methods
-
 ### 4.6.1 Script ```asl_synthetic.py```
 - The script starts by initialising command-line arguments for the path to the zip file and epochs. 
 - Then, it unzips the zip file, if it is not unzipped.
@@ -40,14 +52,13 @@ This script uses the same functions from the ```helper_functions.py``` as the pr
 - Then the scripts deletes the folders *del, nothing,* and *space*. To ensure that only letters are included in the image classification.
 - After deleting, the script creates a Pandas dataframe of all train images with two columns, *image_path* and *label*. This dataframe is created by using for loops and *os.listdir* to get the filepath, and each folder name (labels). The reason a dataframe is created is to allow for sampling, and to get test images. Since the dataset only has one test image per class.
 - The test image dataframe is than created by grouping the dataframe together by the column label, and getting the first 100 rows for each label. Lastly, the rows that have been moved to the new dataframe are deleted in the original dataframe, to ensure no duplicates.
-- Than a function for sampling is created. This function takes an argparse as the amount of rows to be sampled. Sampling is benefical to reduce the training size, and thereby reducing training time.
+- Than a function for sampling is created. This function takes an argparse as the amount of rows to be sampled. Sampling is benefical to reduce the training size, and thereby reducing training time. I chose to create a sample of 26000 images out of the 75400 possible training images. Out of the 26000 iamges 5200 of them became validation images.
 - The train and validation images are than loaded in using TensorFlows *flow_from_dataframe*. The *flow_from_dataframe* uses the same arguments as the *flow_from_directory*, except that the path to the images and the labels are from columns.
 - The test images are than loaded in the same way as the train and validation images, with the exception of shuffle is false, and no labels are specified.
 - After training the model, from the ```helper_functions.py``` script, a classification report is created by getting the true labels from the column labels, and comparing them to the predictions. 
 - Lastly, the model, plot, and classification report is saved.
 
 ## 4.7 Discussion
-## add subset and amount of images 
 Looking at the classification report for both scripts, shows that both models perform well considering that there are 26 classes to predict. However, one of the models has a significantly higher score then the other. The ```asl_real.py```script had an accuracy f1-score of 0.94 compared to ```asl_synthetic.py``` that had an accuracy f1-score of 0.54. Both models were tested on 2600 images (100 of each letter). For the synthetic script, the worst f1-score was for the letter *F* (0.41), which was one of the letters with the best f1-score on the real script (0.99). The reason that the ```asl_real.py``` script performs better than the other script is that there are no big variations in background features. The real script only had bland background, meaning that the model could purely learn the features of the hand. The ```asl_synthetic.py```script had a lot of various backgrounds with different levels of features. This impacted the models learning, since the model thinks that all features in the image are part of the letter.
 
 When looking at the *loss and accuracy plotss* for the two scripts, it clearly shows that one model is not over or under fitting, but one model is over fitting. The ```asl_real.py```script follows a steady curve for both training and validation. This shows that the model is not over fitting and that it is not under fitting as well. The plot for the ```asl_synthetic.py``` script shows that the model is either over fitting or that the images are to different for the model to learn weights for good predictions. The *train and validation loss* shows that the *val_loss* curve is cutting through the *train_loss* curve, and that it is not flattining out during the end of training, which are signs of over fitting. The same goes for the *training and validation accuracy*.
