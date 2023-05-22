@@ -26,7 +26,15 @@ This script uses the following packages:
 - Sys is used to navigate the directory. In this case show the pack to the ```helper_functions.py``` script.
 ## 4.5 Repository Contents
 This repository contains the following folder and files.
-- ---data--- 
+- ***Data*** is an empty folder where the zip files will be placed.
+- __Figs__ is a folder that contains the *loss and accuracy plots*. 
+- __Models__ is a folder that contains the saved models. 
+- __Out__ is a folder that contains the classification reports for both models.
+- __Src__ is a folder that contains the two scripts ```asl_real.py``` and ```asl_synthetic.py```.
+- __Utils__ is a folder that contains the ```helper_functions.py``` script. 
+- __README.md__ the readme file.
+- __Requirements.txt__ this text file contains the packages to install.
+- __Setup.sh__ installs the virtual environment, upgrades pip, and installs the packages from requirements.txt.
 ## 4.6 Methods
 ### 4.6.1 Script ```asl_synthetic.py```
 - The script starts by initialising command-line arguments for the path to the zip file and epochs. 
@@ -67,3 +75,15 @@ One of the main factors in the difference in model performance is that the image
 It would have been interesting to see how the model would have performed if the images were rescaled to half of the original size, but due to computational limitations this was not possible. Furthermore it would have been interesting to see how the ```asl_real.py``` script would have performed on all training images instead of a subset. Lastly, it would have been interesting to see how the models would have performed on images from the other script (Synthetic model on real images)(Real model on synthetic images). My hypothesis is that both models would have performed badly, since they have been trained on a hugh difference in amount of features to predict on.
 
 ## 4.8 Usage
+To run the scripts in this repository follow these steps:
+1. Clone the repository.
+2. Get the zip file data from Kaggle for the [synthetic images](https://www.kaggle.com/datasets/lexset/synthetic-asl-alphabet) and the [real images](https://www.kaggle.com/datasets/grassknoted/asl-alphabet), and place them in the *data* folder.
+3. Run ```bash setup.sh``` in the command-line. This will create a virtual environment and install the requirements.
+4. Run ```source ./assignment_4/bin/activate``` in the command-line to activate the virutal environment.
+5. To run the ```asl_real.py``` script, run this in the command-line: ```python3 src/asl_real.py --zip_path data/archive.zip --train_sample_size 26000 --epochs 5```
+  - ```--zip_path``` takes a string as input and is the path to your zip file. 
+  - ```--train_sample_size``` takes an integer as input, but has a defualt of 75400. Only include it if you want to sample.
+  - ```--epochs``` takes an integer as input, but has a defualt of 5. Only include if you want to change how many epochs the model will be trained on.
+6. To run the ```asl_synthetic.py``` script, run this in the command-line: ```python3 src/asl_synthetic.py --zip_path data/archive1.zip --epochs 10```
+  - ```--zip_path``` takes a string as input and is the path to your zip file.
+  - ```--epochs``` takes an integer as input, but has a defualt of 10. Only include if you want to change how many epochs the model will be trained on.
