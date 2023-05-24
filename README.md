@@ -2,7 +2,7 @@
 ## 4.1 Assignment Description 
 This is a self-chosen assignment. I have chosen to work with American Sign Language (ASL) alphabet images. This assignment will use a pre-trained model to classify two different datasets of ASL, create a classification report for both models, save a loss and accuracy curve plot, and save the models.
 ## 4.2 Machine Specifications and My Usage
-All the computation done for this project was performed on the UCloud interactive HPC system, which is managed by the eScience Center at the University of Southern Denmark. Python version 1.73.1. The script ``asl_real.py`` took 80 minutes to run with 32-CPU, with the majority of the time spent on training the model. The script ``asl_synthetic.py`` took 100 minutes to run with 32-CPU.
+All the computation done for this project was performed on the UCloud interactive HPC system, which is managed by the eScience Center at the University of Southern Denmark. This script ran on Coder Python 1.73.1 and Python version 3.9.2. The script ``asl_real.py`` took 80 minutes to run with 32-CPU, with the majority of the time spent on training the model. The script ``asl_synthetic.py`` took 100 minutes to run with 32-CPU.
 ### 4.2.1 Prerequisites 
 To run this script, make sure to have Bash and Python 3 installed on your device. This script has only been tested on Ucloud. 
 ## 4.3 Contribution 
